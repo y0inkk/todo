@@ -2,6 +2,7 @@ const dynamicParagraph = document.getElementById('dynamicParagraph');
 const inputField = document.getElementById('inputele')
 const button = document.getElementById('addBtn');
 let count = 0;
+let sum = 0;
 const clearFunc = document.querySelector('.clearFunc');
 
 const handleKeyDown = (event) => {
@@ -23,14 +24,23 @@ button.addEventListener('click', () => {
         dynamicParagraph.appendChild(anchor);
         anchor.id = 'anchor';
 
+        const taskCount = document.getElementById('taskCount');
+        sum = sum + 1;
+        taskCount.innerHTML = count + "/" + sum + ' tasks completed';
         anchor.addEventListener('click', () => {
+            
             if (anchor.innerText.startsWith('[ ]')) {
                 anchor.innerText = "[x] " + input;
-            } else {
+                count = count + 1;
+                taskCount.innerHTML = count + "/" + sum + ' tasks completed';
+
+            } 
+            else {
                 anchor.innerText = "[ ] " + input;
+                count = count - 1;
+                taskCount.innerHTML = count + "/" + sum + ' tasks completed';
             }
         });
-
         inputField.value = '';
         clearFunc.classList.remove('hidden');
     }
@@ -50,14 +60,23 @@ inputField.addEventListener('keydown', (event) => {
         dynamicParagraph.appendChild(anchor);
         anchor.id = 'anchor';
 
+        const taskCount = document.getElementById('taskCount');
+        sum = sum + 1;
+        taskCount.innerHTML = count + "/" + sum + ' tasks completed';
         anchor.addEventListener('click', () => {
+            
             if (anchor.innerText.startsWith('[ ]')) {
                 anchor.innerText = "[x] " + input;
-            } else {
+                count = count + 1;
+                taskCount.innerHTML = count + "/" + sum + ' tasks completed';
+
+            } 
+            else {
                 anchor.innerText = "[ ] " + input;
+                count = count - 1;
+                taskCount.innerHTML = count + "/" + sum + ' tasks completed';
             }
         });
-
         inputField.value = '';
         clearFunc.classList.remove('hidden');
     }
