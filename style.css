@@ -11,6 +11,9 @@ body{
     margin: auto;
 }
 
+#taskCount{
+    text-align: center;
+}
 .container{
     min-width: 300px;
     justify-items: center;
@@ -109,4 +112,10 @@ p{
 
 .hidden{
     display: none;
+}
+
+#dynamicParagraph a{
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 300;
+    font-size: 0.8em;
 }
